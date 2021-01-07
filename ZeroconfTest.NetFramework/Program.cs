@@ -17,6 +17,8 @@ namespace ZeroconfTest.NetFramework
             {
                 Console.WriteLine(l.DisplayName);
                 Console.WriteLine(l.NetworkInterface.Description);
+                Console.WriteLine(l.IPAddress);
+                Console.WriteLine(l.IPv6Address);
             }
             Console.ReadLine();
         }

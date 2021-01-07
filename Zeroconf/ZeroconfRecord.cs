@@ -44,6 +44,9 @@ namespace Zeroconf
         /// </summary>
         System.Net.NetworkInformation.NetworkInterface NetworkInterface { get; }
 
+        string IPv6Address { get; }
+        IReadOnlyList<string> IPv6Addresses { get; }
+
     }
 
     /// <summary>
@@ -109,6 +112,19 @@ namespace Zeroconf
         ///     IP Addresses
         /// </summary>
         public IReadOnlyList<string> IPAddresses { get; set; }
+
+        /// <summary>
+        ///     IPv6 Address (alias for IPv6Addresses.First())
+        /// </summary>
+        public string IPv6Address
+        {
+            get { return IPv6Addresses?.FirstOrDefault(); }
+        }
+
+        /// <summary>
+        ///     IPv6 Addresses
+        /// </summary>
+        public IReadOnlyList<string> IPv6Addresses { get; set; }
 
         /// <summary>
         ///     Collection of services provided by the host

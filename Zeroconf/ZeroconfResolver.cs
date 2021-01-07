@@ -100,6 +100,15 @@ namespace Zeroconf
                                       .Select(aRecord => aRecord.Address)
                                       .Distinct()
                                       .ToList(),
+                IPv6Addresses = response.Answers
+                                        .Select(r => r.RECORD)
+                                        .OfType<RecordAAAA>()
+                                        .Concat(response.Additionals
+                                                        .Select(r => r.RECORD)
+                                                        .OfType<RecordAAAA>())
+                                        .Select(aaaaRecord => aaaaRecord.Address)
+                                        .Distinct()
+                                        .ToList(),
                 NetworkInterface = netInterface
             };
 
